@@ -41,9 +41,20 @@
 import java.util.Scanner;
 
 public class Racing {
+	
+	/*
+	 * 1. Here global variables are declared and initalized.
+	 * 2. The main program control flow is located in this block of code.
+	 * */
 
 	public static void main(String[] args) {
+		int hPosition, tPosition;
+		String Hare, Tortoise;
+		boolean quit = false;
+		
 		headerMessage();
+		
+		userChoice();
 		
 		
 		
@@ -51,7 +62,29 @@ public class Racing {
 	}
 	
 	public static void userChoice() {
+		
+		System.out.println("User selection: ");
+		
 		Scanner input = new Scanner(System.in);
+		int userChoice = input.nextInt();
+		System.out.print(userChoice);
+		
+		switch(userChoice) {
+			
+			case 0:
+				boolean quit = true;
+				break;
+				
+			case 1:
+				int hPosition, tPosition = 1;
+				System.out.println("case2");
+				break;
+			
+			default:
+				System.out.println("An unknown error has occured, please try again.");
+		}
+		
+		
 		
 		
 	}
