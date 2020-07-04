@@ -41,9 +41,10 @@
  */
 
 /*
+ *  * Important notes for this block:
  * 1. Here global variables are declared and initialized (if needed)
  * 2. Different classes must be used for both the Hare and Tortoise (and position they are in the race?)
- * 3. Getter and Setter methods are used here for use in the main method (start with get then set)
+ * 3. Getter (public int) and Setter (public void) methods are used here for use in the main method (start with get then set)
  */
 class Tort {
 	private int position;
@@ -52,18 +53,75 @@ class Tort {
 		return position;
 	}
 	
+	public void setPos(int pos) {
+		position = pos;
+	}
 	
+	public void fastPlod() {
+		position += 3; 
+	}
 	
+	public void slowPlod() {
+		position += 1; 
+	}
+	
+	public void slip() {
+		if (position <= 6) {
+			position = 1;
+		} else {
+			position -= 6;
+		}
+	}
 }
 
-
+class Hare {
+	private int position;
+	
+	public int getPos() {
+		return position;
+	}
+	
+	public void setPos(int pos) {
+		position = pos;
+	}
+	
+	public void bigHop() {
+		position += 9; 
+	}
+	
+	public void smallHop() {
+		position += 1; 
+	}
+	
+	public void bigSlip() {
+		if (position <= 12) {
+			position = 1;
+		} else {
+			position -= 12;
+		}
+	}
+	
+	public void smallSlip() {
+		if (position <= 2) {
+			position = 1;
+		} else {
+			position -= 2;
+		}
+	}
+	
+	public void sleep() {
+		if (position == 9 || position == 10) {
+			position = position;
+		} 
+	}
+}
 
 /*
  * This is the main class that executes the program, all program's essential features and components are
  * put together here. The main program control flow is located in the main.
  * 
  * Important notes for this block:
- * /*
+ * 
  * 1. Here global variables are declared and initialized
  * 2. The main program control flow is located in the main
  * 3. Getter and Setter methods are used
@@ -76,11 +134,102 @@ public class Racing {
 	
 
 	public static void main(String[] args) {
-		
 		headerMessage();
-		
-		System.out.println("3...2...1! AND THEY'RE OFF!");
+		System.out.println("3...2...1..\n");
+		System.out.println("AND THEY'RE OFF!");
 				
+		Tort tortoise = new Tort();
+		Hare rabbit = new Hare();
+		
+		// start the program with setting the position with the contenders
+		tortoise.setPos(1);
+		rabbit.setPos(1);
+		
+		//set up the various cases for the race and gait of the contenders
+		while (tortoise.getPos() > 0) {
+			// randomize the position of each of the contenders
+			int randomizePos = (int)(Math.random()*10);
+			switch (randomizePos) {
+			
+				case 1:
+					tortoise.fastPlod();
+					rabbit.bigHop();
+					break;
+					
+				case 2:
+					tortoise.slowPlod();
+					rabbit.bigHop();
+					break;
+					
+				case 3:
+					tortoise.slip();
+					rabbit.bigHop();
+					break;
+					
+				case 4:
+					tortoise.fastPlod();
+					rabbit.smallHop();
+					break;
+					
+				case 5:
+					tortoise.slowPlod();
+					rabbit.smallHop();
+					break;
+					
+				case 6:
+					tortoise.slip();
+					rabbit.smallHop();
+					break;
+					
+				case 7:
+					tortoise.fastPlod();
+					rabbit.bigSlip();
+					break;
+					
+				case 8:
+					tortoise.slowPlod();
+					rabbit.bigSlip();
+					break;
+					
+				case 9:
+					tortoise.slip();
+					rabbit.bigSlip();
+					break;
+					
+				case 10:
+					tortoise.fastPlod();
+					rabbit.smallSlip();
+					break;
+					
+				case 11:
+					tortoise.slowPlod();
+					rabbit.smallSlip();
+					break;
+					
+				case 12:
+					tortoise.slip();
+					rabbit.smallSlip();
+					break;
+					
+				case 13:
+					tortoise.fastPlod();
+					rabbit.sleep();
+					break;
+					
+				case 14:
+					tortoise.slowPlod();
+					rabbit.sleep();
+					break;
+					
+				case 15:
+					tortoise.slip();
+					rabbit.sleep();
+					break;
+					
+				default:
+					System.out.println("An unknown error has occured, please restart the program.\n");
+			}
+		}
 		
 		
 	}
