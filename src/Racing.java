@@ -4,6 +4,7 @@
  * Mini Project 1
  * 
  * Application Requirements:
+ * 
  * This project involves writing a program to simulate a tortoise and hare race. 
  * The contenders will each race along a horizontal course that contains at least
  * 50 positions. You may add more if you wish. The race begins with each contender 
@@ -36,55 +37,50 @@
  * 5. If the tortoise wins, display “TORTOISE WINS!!”. If the hare wins, display “HARE WINS!!”.
  *    If the race is a tie, display “IT’S A TIE!!”. At the beginning of the race, display 
  *    “AND THEY’RE OFF!!”.
- * */
+ * 
+ */
 
-import java.util.Scanner;
+/*
+ * 1. Here global variables are declared and initialized (if needed)
+ * 2. Different classes must be used for both the Hare and Tortoise (and position they are in the race?)
+ * 3. Getter and Setter methods are used here for use in the main method (start with get then set)
+ */
+class Tort {
+	private int position;
+	
+	public int getPos() {
+		return position;
+	}
+	
+	
+	
+}
+
+
+
+/*
+ * This is the main class that executes the program, all program's essential features and components are
+ * put together here. The main program control flow is located in the main.
+ * 
+ * Important notes for this block:
+ * /*
+ * 1. Here global variables are declared and initialized
+ * 2. The main program control flow is located in the main
+ * 3. Getter and Setter methods are used
+ * 4. Different classes must be used for both the Hare and Tortoise (place those classes at the end
+ *    to prevent confusion)
+ */
 
 public class Racing {
 	
-	/*
-	 * 1. Here global variables are declared and initalized.
-	 * 2. The main program control flow is located in this block of code.
-	 * */
+	
 
 	public static void main(String[] args) {
-		int hPosition, tPosition;
-		String Hare, Tortoise;
-		boolean quit = false;
 		
 		headerMessage();
 		
-		userChoice();
-		
-		
-		
-
-	}
-	
-	public static void userChoice() {
-		
-		System.out.println("User selection: ");
-		
-		Scanner input = new Scanner(System.in);
-		int userChoice = input.nextInt();
-		System.out.print(userChoice);
-		
-		switch(userChoice) {
-			
-			case 0:
-				boolean quit = true;
-				break;
+		System.out.println("3...2...1! AND THEY'RE OFF!");
 				
-			case 1:
-				int hPosition, tPosition = 1;
-				System.out.println("case2");
-				break;
-			
-			default:
-				System.out.println("An unknown error has occured, please try again.");
-		}
-		
-		
 		
 		
 	}
@@ -93,18 +89,11 @@ public class Racing {
 	
 	private static void headerMessage() {
 		System.out.println("\n");
-		System.out.println("+------------------------------------------------------------------------+");
-		System.out.println("|                                                                        |");
-		System.out.println("|                              Welcome User,                             |");
-		System.out.println("|                                                                        |");
-		System.out.println("|         This application simunlate a race between a tortious and a     |");
-		System.out.println("|      Hare. Please see the instrucitons below on how to play this game. |");
-		System.out.println("|                                                                        |");
-		System.out.println("| Press (0): To Quit the game.                                           |");
-		System.out.println("| Press (1): To play the game.                                           |");
-		System.out.println("|                                                                        |");
-		System.out.println("|                               Let's start!                             |");
-		System.out.println("+------------------------------------------------------------------------+");
+		System.out.println("+--------------------------------------------------------------------------+");
+		System.out.println("|                              Welcome User:                               |");
+		System.out.println("|         This application simulates a race between a Tortoise and a       |");
+		System.out.println("|       Hare. Enjoy this simple application of a favorite childhood fable! |");
+		System.out.println("+--------------------------------------------------------------------------+");
 		System.out.println("\n");
 	}
 
