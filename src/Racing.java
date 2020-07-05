@@ -46,6 +46,7 @@
  * 2. Different classes must be used for both the Hare and Tortoise (and position they are in the race?)
  * 3. Getter (public int) and Setter (public void) methods are used here for use in the main method (start with get then set)
  */
+
 class Tort {
 	private int position;
 	
@@ -122,16 +123,16 @@ class Hare {
  * 
  * Important notes for this block:
  * 
- * 1. Here global variables are declared and initialized
- * 2. The main program control flow is located in the main
- * 3. Getter and Setter methods are used
- * 4. Different classes must be used for both the Hare and Tortoise (place those classes at the end
- *    to prevent confusion)
+ * 1. New variables are initialized with the Tortoise and Hare classes (data types)
+ * 2. Set the starting positions of the contenders with the setter methods
+ * 3. Randomize the position of each of the contenders (this is matching back to the contenders' class)
+ * 4. List all the various cases for the positions (gait and size) of the contenders (which is determined by
+ * 	  the randomization)
+ * 5. Prepare various print statements based on conditions of the contenders' position (use if statements and loops)
+ *    it should be in a method on its own then called in the appropriate spot
  */
 
 public class Racing {
-	
-	
 
 	public static void main(String[] args) {
 		headerMessage();
@@ -141,13 +142,10 @@ public class Racing {
 		Tort tortoise = new Tort();
 		Hare rabbit = new Hare();
 		
-		// start the program with setting the position with the contenders
 		tortoise.setPos(1);
 		rabbit.setPos(1);
-		
-		//set up the various cases for the race and gait of the contenders
+	
 		while (tortoise.getPos() > 0) {
-			// randomize the position of each of the contenders
 			int randomizePos = (int)(Math.random()*10);
 			switch (randomizePos) {
 			
@@ -225,16 +223,41 @@ public class Racing {
 					tortoise.slip();
 					rabbit.sleep();
 					break;
-					
+				
 				default:
 					System.out.println("An unknown error has occured, please restart the program.\n");
+					break;
+			}
+			
+			for (int i = 1; i < 50; i++) {
+				if(i == tortoise.getPos()) {
+					System.out.print(" t ");
+				} else {
+					System.out.print(" _ ");
+				}
+				
+				if(i == rabbit.getPos()) {
+					System.out.print(" h ");
+				} else {
+					System.out.print(" _ ");
+				}
+			}
+			
+			System.out.println(" ");
+			
+			if (tortoise.getPos() == 50 && rabbit.getPos() == 50) {
+				System.out.println("What a shame... it's a tie!");
+			} else if (tortoise.getPos() == 50) {
+				System.out.println("Mr. Tortoise wins!");
+			} else if (rabbit.getPos() == 50) {
+				System.out.println("Mr. Hare wins!");
+			
+			if (tortoise.getPos() == rabbit.getPos()) {
+				System.out.println("Ouchey! Mr. Tortoise snapped on Mr. Hare!");
 			}
 		}
-		
-		
-	}
-	
-	
+	}		
+}
 	
 	private static void headerMessage() {
 		System.out.println("\n");
