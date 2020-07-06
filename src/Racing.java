@@ -136,8 +136,7 @@ public class Racing {
 
 	public static void main(String[] args) {
 		headerMessage();
-		System.out.println("3...2...1..\n");
-		System.out.println("AND THEY'RE OFF!");
+		System.out.println("And theyre off!");
 				
 		Tort tortoise = new Tort();
 		Hare rabbit = new Hare();
@@ -145,7 +144,7 @@ public class Racing {
 		tortoise.setPos(1);
 		rabbit.setPos(1);
 	
-		while (tortoise.getPos() > 0) {
+		do {
 			int randomizePos = (int)(Math.random()*10);
 			switch (randomizePos) {
 			
@@ -155,12 +154,12 @@ public class Racing {
 					break;
 					
 				case 2:
-					tortoise.slowPlod();
+					tortoise.fastPlod();
 					rabbit.bigHop();
 					break;
 					
 				case 3:
-					tortoise.slip();
+					tortoise.fastPlod();
 					rabbit.bigHop();
 					break;
 					
@@ -170,17 +169,17 @@ public class Racing {
 					break;
 					
 				case 5:
-					tortoise.slowPlod();
+					tortoise.fastPlod();
 					rabbit.smallHop();
 					break;
 					
 				case 6:
-					tortoise.slip();
+					tortoise.slowPlod();
 					rabbit.smallHop();
 					break;
 					
 				case 7:
-					tortoise.fastPlod();
+					tortoise.slowPlod();
 					rabbit.bigSlip();
 					break;
 					
@@ -242,22 +241,20 @@ public class Racing {
 					System.out.print(" _ ");
 				}
 			}
-			
 			System.out.println(" ");
 			
-			if (tortoise.getPos() == 50 && rabbit.getPos() == 50) {
-				System.out.println("What a shame... it's a tie!");
-			} else if (tortoise.getPos() == 50) {
-				System.out.println("Mr. Tortoise wins!");
-			} else if (rabbit.getPos() == 50) {
-				System.out.println("Mr. Hare wins!");
+		} while (tortoise.getPos() != 50 && rabbit.getPos() != 50);
 			
-			if (tortoise.getPos() == rabbit.getPos()) {
-				System.out.println("Ouchey! Mr. Tortoise snapped on Mr. Hare!");
-			}
+		if (tortoise.getPos() == 50 && rabbit.getPos() == 50) {
+			System.out.println("What a shame... it's a tie... Mr. Tortoise Wins!");
+		} else if (tortoise.getPos() == 50) {
+			System.out.println("Mr. Tortoise wins!");
+		} else if (rabbit.getPos() == 50) {
+			System.out.println("Mr. Hare wins!");
+		} else if (tortoise.getPos() == rabbit.getPos()) {
+			System.out.println("Ouchey! Mr. Tortoise snapped on Mr. Hare!");
 		}
-	}		
-}
+	}	
 	
 	private static void headerMessage() {
 		System.out.println("\n");
