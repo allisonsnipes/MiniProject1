@@ -160,7 +160,7 @@ public class Racing {
 					
 				case 3:
 					tortoise.fastPlod();
-					rabbit.bigHop();
+					rabbit.smallHop();
 					break;
 					
 				case 4:
@@ -175,86 +175,60 @@ public class Racing {
 					
 				case 6:
 					tortoise.slowPlod();
-					rabbit.smallHop();
+					rabbit.bigSlip();
 					break;
 					
 				case 7:
 					tortoise.slowPlod();
-					rabbit.bigSlip();
+					rabbit.smallSlip();
 					break;
 					
 				case 8:
 					tortoise.slowPlod();
-					rabbit.bigSlip();
+					rabbit.smallSlip();
 					break;
 					
 				case 9:
 					tortoise.slip();
-					rabbit.bigSlip();
+					rabbit.sleep();;
 					break;
 					
 				case 10:
-					tortoise.fastPlod();
-					rabbit.smallSlip();
-					break;
-					
-				case 11:
-					tortoise.slowPlod();
-					rabbit.smallSlip();
-					break;
-					
-				case 12:
-					tortoise.slip();
-					rabbit.smallSlip();
-					break;
-					
-				case 13:
-					tortoise.fastPlod();
-					rabbit.sleep();
-					break;
-					
-				case 14:
-					tortoise.slowPlod();
-					rabbit.sleep();
-					break;
-					
-				case 15:
 					tortoise.slip();
 					rabbit.sleep();
-					break;
-				
-				default:
-					System.out.println("An unknown error has occured, please restart the program.\n");
 					break;
 			}
 			
 			for (int i = 1; i < 50; i++) {
-				if(i == tortoise.getPos()) {
-					System.out.print(" t ");
-				} else {
-					System.out.print(" _ ");
-				}
 				
-				if(i == rabbit.getPos()) {
-					System.out.print(" h ");
-				} else {
-					System.out.print(" _ ");
+				if (tortoise.getPos() == rabbit.getPos()) {
+					System.out.println("Ouchey! Mr. Tortoise is next to Mr. Hare and bit him!\n");
+				} else  {
+					if(i == tortoise.getPos()) {
+						System.out.print(" t ");
+					} else {
+						System.out.print(" _ ");
+					}
+					
+					if(i == rabbit.getPos()) {
+						System.out.print(" h ");
+					} else {
+						System.out.print(" _ ");
+					}
 				}
 			}
 			System.out.println(" ");
 			
-		} while (tortoise.getPos() != 50 && rabbit.getPos() != 50);
-			
-		if (tortoise.getPos() == 50 && rabbit.getPos() == 50) {
-			System.out.println("What a shame... it's a tie... Mr. Tortoise Wins!");
-		} else if (tortoise.getPos() == 50) {
-			System.out.println("Mr. Tortoise wins!");
-		} else if (rabbit.getPos() == 50) {
-			System.out.println("Mr. Hare wins!");
-		} else if (tortoise.getPos() == rabbit.getPos()) {
-			System.out.println("Ouchey! Mr. Tortoise snapped on Mr. Hare!");
-		}
-	}	
+	} while (tortoise.getPos() != 50 && rabbit.getPos() != 50);
+	
+	if (tortoise.getPos() == 50 && rabbit.getPos() == 50) {
+		System.out.println("What a shame... it's a tie... Mr. Tortoise Wins!");
+	} else if (tortoise.getPos() == 50) {
+		System.out.println("Mr. Tortoise wins!");
+	} else if (rabbit.getPos() == 50) {
+		System.out.println("Mr. Hare wins!");
+	}
+}	
 	
 	private static void headerMessage() {
 		System.out.println("\n");
